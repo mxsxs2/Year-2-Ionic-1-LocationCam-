@@ -1,15 +1,24 @@
 ## Introduction
 The application is made in Ionic 1 for Internet and Mobile Application Development module in Software Development course year 2(2016) at Galway Mayo Institute of Technology, Galway Campus.
 The main purpose of the application is to take pictures. It has features like writing the date and the current location onto the picture and finally share the picture with via Facebook, Instagram, Twitter or any other social media application.
-##How to run/build
+## How to run/build
 Install Node.js dependecies
-``` npm install ```
+``` 
+npm install 
+```
 Install Cordova Plugins
-``` ionic state restore ```
+``` 
+ionic state restore 
+```
 Run in browser
-``` ionic serve ```
+``` 
+ionic serve 
+```
 Build app
-``` ionic build android ```
+``` 
+ionic build android 
+```
+
 ## Features
 ### Album
 The photo album is the main page of the application. In the photo album, the pictures are listed from the devices Photo Gallery/Camera Roll. Only the pictures in the LocationCam album will be shown. Every picture can be tapped on and shown in bigger screen. Once the picture is shown then it can be shared to any social media application on the device or even it can be sent as a text message or e-mail. 
