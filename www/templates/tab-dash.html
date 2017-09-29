@@ -1,0 +1,43 @@
+<ion-view view-title="Location Cam" class="icon icon-right ion-ios-location">
+  <ion-content class="padding" ng-controller="DashCtrl">
+    <!-- The messages from the controller -->
+    <span id="gpsLoading" class="messageSpan">{{message}}</span>
+    <!-- The capure button -->
+    <button class="button button-block button-dark shoot icon icon-left ion-ios-camera-outline">Capture</button>
+    <!-- Icon for camera loading -->
+    <p align="center" id="galleryLoading">
+        <ion-spinner icon="crescent"></ion-spinner>
+    </p>
+    <!-- The image gallery -->
+     <div class="row" ng-repeat="image in images" ng-if="$index % 4 === 0">
+        <div class="col col-25 imageContainer" ng-if="$index < images.length"  ng-click="openImage({{$index}})">
+            <img ng-src="{{images[$index].src}}" width="100%" class="center-block"/>
+        </div>
+        <div class="col col-25 imageContainer" ng-if="$index + 1 < images.length"   ng-click="openImage({{$index+1}})">
+            <img ng-src="{{images[$index + 1].src}}" width="100%" class="center-block"/>
+        </div>
+        <div class="col col-25 imageContainer" ng-if="$index + 2 < images.length"  ng-click="openImage({{$index+2}})">
+            <img ng-src="{{images[$index + 2].src}}" width="100%" class="center-block"/>
+        </div>
+        <div class="col col-25 imageContainer" ng-if="$index + 3 < images.length" ng-click="openImage({{$index+3}})" >
+            <img ng-src="{{images[$index + 3].src}}" width="100%" class="center-block"/>
+        </div>
+    </div>
+    
+    <!-- Picture model for the modal -->
+    <script id="image-modal.html" type="text/ng-template">
+              <div class="modal image-modal transparent">
+                  <ion-pane class="transparent">
+                        <div id="button-container"> 
+                            <div class="picture-button icon ion-share" ng-click="shareImage(imageSrc)"></div>
+                            <!-- not implemented <div class="picture-button icon ion-trash-a"></div> -->
+                        </div>
+                        <img ng-src="{{imageSrc}}" class="fullscreen-image" style="z-index:1"  ng-click="closeModal()"/>
+                  </ion-pane>
+              </div>
+          </script>
+  </ion-content>
+  
+
+
+</ion-view>

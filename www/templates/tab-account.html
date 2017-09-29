@@ -1,0 +1,171 @@
+<ion-view view-title="Location Cam">
+  <ion-content>
+    <!-- List of settings -->
+    <ion-list>
+    <!-- Content settings -->
+    <div class="item item-divider">
+          Content
+    </div>
+    <ion-toggle ng-model="settings.enableLocation" class="setting">
+            Location on pictures
+    </ion-toggle>
+    <ion-toggle ng-model="settings.enableDate" class="setting">
+        Date on pictures
+    </ion-toggle>
+    
+    <div ng-if="settings.enableLocation || settings.enableDate"> <!-- Hide the styling if no content is needed --> 
+        <!-- Position settings -->
+        <div class="item item-divider">
+              Position
+        </div>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Vertical
+            </div>
+            <select ng-model="settings.textPositionVertical" class="setting">
+              <option>Top</option>
+              <option>Middle</option>
+              <option>Bottom</option>
+            </select>
+          </label>
+          
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Horizontal
+            </div>
+            <select ng-model="settings.textPositionHorizontal"  class="setting">
+              <option>Left</option>
+              <option>Center</option>
+              <option>Right</option>
+            </select>
+          </label>
+        <!-- Font settings/styling -->
+        <div class="item item-divider">
+              Font
+        </div>
+        <label class="item " style="position: static; overflow: visible; min-height: 66px;">
+                <div class="input-label" style="float: left;">
+                  Colour
+                </div>
+                <div style="float:right">
+                    <color-picker ng-model="settings.fontColor" event-api="fontColorEventApi" options="{'format':'hex','pos':'bottom right', 'round': false, 'show':{'swatch':false,'focus':true},'swatchOnly':true}" ng-readonly="true"></color-picker>
+                </div>
+                </span>
+          </label>
+        <label class="item item-input item-select">
+            <div class="input-label">
+              Style
+            </div>
+            <select ng-model="settings.fontStyle"  class="setting">
+              <option>Normal</option>
+              <option>Italic</option>
+              <option>Oblique</option>
+            </select>
+          </label>
+        <label class="item item-input item-select">
+            <div class="input-label">
+              Variant
+            </div>
+            <select ng-model="settings.fontVariant"  class="setting">
+              <option>Normal</option>
+              <option>Small-Caps</option>
+            </select>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Weight
+            </div>
+            <select ng-model="settings.fontWeight"  class="setting">
+              <option>Normal</option>
+              <option>Bold</option>
+              <option>Bolder</option>
+              <option>Lighter</option>
+            </select>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Size
+            </div>
+            <select ng-model="settings.fontSize"  class="setting">
+              <option>8</option>
+              <option>12</option>
+              <option>14</option>
+              <option>16</option>
+              <option>18</option>
+              <option>20</option>
+              <option>22</option>
+              <option>24</option>
+              <option>26</option>
+              <option>28</option>
+              <option>30</option>
+            </select>
+          </label>
+          <label class="item item-input item-select">
+            <div class="input-label">
+              Family
+            </div>
+            <select ng-model="settings.fontFamily"  class="setting">
+              <option value='Arial,"Helvetica Neue",Helvetica,sans-serif'>Arial</option>
+              <option value='"Arial Black","Arial Bold",Gadget,sans-serif'>Arial Black</option>
+              <option value='"Avant Garde",Avantgarde,"Century Gothic",CenturyGothic,AppleGothic,sans-serif'>Avant Garde</option>
+              <option value='Calibri,Candara,Segoe,"Segoe UI",Optima,Arial,sans-serif'>Calibri</option>
+              <option value='Candara,Calibri,Segoe,"Segoe UI",Optima,Arial,sans-serif'>Candara</option>
+              <option value='"Century Gothic",CenturyGothic,AppleGothic,sans-serif'>Country Gothic</option>
+              <option value='"Franklin Gothic Medium","Franklin Gothic","ITC Franklin Gothic",Arial,sans-serif'>Franklin Gothic</option>
+              <option value='Futura,"Trebuchet MS",Arial,sans-serif'>Futura</option>
+              <option value='Geneva,Tahoma,Verdana,sans-serif'>Geneva</option>
+              <option value='"Lucida Grande","Lucida Sans Unicode","Lucida Sans",Geneva,Verdana,sans-serif'>Lucida Grande</option>
+              <option value='Impact,Haettenschweiler,"Franklin Gothic Bold",Charcoal,"Helvetica Inserat","Bitstream Vera Sans Bold","Arial Black","sans serif"'>Impact</option>
+              <option value='"Helvetica Neue",Helvetica,Arial,sans-serif'>Helvetica</option>
+              <option value='"Gill Sans","Gill Sans MT",Calibri,sans-serif'>Gill Sans</option>
+              <option value='Tahoma,Verdana,Segoe,sans-serif'>Tahoma</option>
+              <option value='Verdana,Geneva,sans-serif'>Verdana</option>
+              <option value='Verdana,Geneva,sans-serif'>Garamond</option>
+              <option value='TimesNewRoman,"Times New Roman",Times,Baskerville,Georgia,serif'>Times New Roman</option>
+              <option value='Consolas,monaco,monospace'>Consolas</option>
+              <option value='"Courier New",Courier,"Lucida Sans Typewriter","Lucida Typewriter",monospace'>Courier New</option>
+              <option value='Papyrus,fantasy'>Papyrus</option>
+              <option value='Copperplate,"Copperplate Gothic Light",fantasy'>Copperplate</option>
+              <option value='"Brush Script MT",cursive'>Brush Script</option>
+            </select>
+          </label>
+        <!-- Box settings/styling -->  
+        <div class="item item-divider">
+              Text Box
+        </div>
+        <ion-toggle ng-model="settings.textBoxShow" class="setting">
+                Show
+        </ion-toggle>
+        <label class="item " style="position: static; overflow: visible; min-height: 66px;">
+                <div class="input-label" style="float: left;">
+                  Colour
+                </div>
+                <div style="float:right">
+                    <color-picker ng-model="settings.boxColor" event-api="boxColorEventApi" options="{'format':'hex','pos':'top right', 'round': false, 'show':{'swatch':false,'focus':true},'swatchOnly':true}" ng-readonly="true"></color-picker>
+                </div>
+                </span>
+          </label>
+      </div>
+      <!-- Camera settings -->
+       <div class="item item-divider">
+          Camera
+       </div>
+       <label class="item item-input item-select">
+            <div class="input-label">
+              Quality
+            </div>
+            <select ng-model="settings.camQuality"  class="setting">
+              <option value="100">Max</option>
+              <option value="50">Medium</option>
+              <option value="20">Low</option>
+            </select>
+          </label>
+       <ion-toggle ng-model="settings.camEditable" class="setting">
+            Edit after capture
+       </ion-toggle>
+       <ion-toggle ng-model="settings.saveToGallery" class="setting">
+            Save plain image
+       </ion-toggle>   
+    </ion-list>
+  </ion-content>
+</ion-view>
